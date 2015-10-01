@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
   def show
-    @article = Article.find(params["format"])
+    @article = Article.with_comments.find(params[:id])
   end
 end

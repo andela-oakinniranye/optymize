@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   get 'comments/new'
   post 'comments/create', as: "comments"
 
-  get 'articles/show'
+  get 'articles/:id' => "articles#show", as: :articles_show
   root to: 'author#index'
 end

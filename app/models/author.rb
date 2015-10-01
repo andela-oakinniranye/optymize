@@ -1,5 +1,6 @@
 class Author < ActiveRecord::Base
   has_many :articles
+  scope :with_articles, -> { includes(:articles) }
 
   def self.generate_authors(count=1000)
     count.times do
@@ -9,14 +10,16 @@ class Author < ActiveRecord::Base
   end
 
   def self.most_prolific_writer
+
     all.sort_by{|a| a.articles.count }.last
   end
 
   def self.with_most_upvoted_article
-    all.sort_by do |auth|
-      auth.articles.sort_by do |art|
-        art.upvotes
-      end.last
-    end.last.name
+    Article.most_upvoted.author.name
+    # all.sort_by do |auth|
+    #   auth.articles.sort_by do |art|
+    #     art.upvotes
+    #   end.last
+    # end.last.name
   end
 end
