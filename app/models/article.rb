@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  belongs_to :author
+  belongs_to :author, counter_cache: true
   has_many :comments
   scope :with_comments, -> { includes(:comments) }
 
