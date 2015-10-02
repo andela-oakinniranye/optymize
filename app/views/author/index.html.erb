@@ -4,13 +4,8 @@
   <%= link_to "Stats", stats_index_path %>
 </nav>
 
-<div class="author">
-  <% @authors.each do |author| %>
-
-      <h2>My name is <%= author.name %></h2>
-      <% author.articles.each do |art| %>
-        <p>I wrote: <span style="text-decoration: underline"><%= link_to art.name, articles_show_path(art) %> </span></p>
-      <% end %>
-
-  <% end %>
-</div>
+<%= will_paginate @authors%>
+<%= render 'author_articles' %>
+<%#= next_cursor_url(@authors) %>
+<%#= previous_cursor_link(@authors, 'Previous Page') %>
+<%#= next_cursor_link(@authors, 'Next Page') %>

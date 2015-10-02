@@ -10,6 +10,7 @@ gem 'pry-rails'
 
   gem 'fabrication'
   gem 'faker'
+  gem 'cursor_pagination'
   gem 'will_paginate'
 
 group :development, :test do
