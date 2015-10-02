@@ -1,10 +1,16 @@
-<div class="author">
-  <% @authors.each do |author| %>
-
-      <h2>My name is <%= author.name %></h2>
-      <% author.articles.each do |art| %>
-        <p>I wrote: <span style="text-decoration: underline"><%= link_to art.name, articles_show_path(art) %> </span></p>
-      <% end %>
-
-  <% end %>
+<% @authors.each do |author| %>
+<div class="col-md-12 text-center">
+    <div class="box">
+        <div class="box-content">
+            <h1 class="tag-title">I am <%= author.name %></h1>
+            <hr />
+            <h5>Books by me:</h5>
+            <% author.articles.each do |art| %>
+              <%= content_tag :p do %>
+                <%= link_to art.name, articles_show_path(art) %>
+              <% end %>
+            <% end %>
+        </div>
+    </div>
 </div>
+<% end %>

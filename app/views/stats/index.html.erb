@@ -1,16 +1,39 @@
-<h1>Some of the most inefficient ActiveRecord Querying ever.</h1>
-
-<div class="stats-section">
-  <div>Most prolific author: <%= @prolific_author.name %> </div>
-  <div>Author with most upvoted article: <%= @author_with_most_upvoted_article %> </div>
-  <p style="text-decoration: underline">Five longest article names:</p>
-  <% @five_longest_article_names.each do |name| %>
-    <li> <%= name %> </li>
-  <% end %>
-
-  <p style="text-decoration: underline">List of all the article names (TOO LONG)</p>
-  <% @article_names.each do |name| %>
-    <li><%= name %></li>
-  <% end %>
-  <%= will_paginate @article_names %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="about-widget">
+      <div class="single-experience">
+        <h3>
+          <small>Most prolific author:</small>
+          <%= @prolific_author.name %></h3>
+      </div>
+      <div class="single-experience">
+        <h3>
+          <small>Author with most upvoted article:</small>
+          <%= @author_with_most_upvoted_article %>
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="about-widget">
+      <h3>Five longest article names:</h3>
+      <% @five_longest_article_names.each do |name| %>
+    <li>
+      <p>
+        <%= name %>
+      </p>
+    </li>
+    <% end %>
+  </div>
+</div>
+<div class="col-md-12">
+  <div class="about-widget">
+    <h3>List of all the article names
+    </h3>
+    <% @article_names.each do |name| %>
+    <li><p><%= name %></p></li>
+    <% end %>
+    <%= will_paginate @article_names, inner_window: 2  %>
+  </div>
+</div>
 </div>

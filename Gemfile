@@ -12,6 +12,10 @@ gem 'pry-rails'
   gem 'faker'
   gem 'cursor_pagination'
   gem 'will_paginate'
+  gem 'bootstrap-will_paginate'
+  gem 'twitter-bootstrap-rails'
+  gem 'less-rails'
+  gem 'therubyracer'
 
 group :development, :test do
   gem 'sqlite3'

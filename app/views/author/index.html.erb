@@ -1,11 +1,2 @@
-<h1> This is a terrible authors index page. One of the worst ever. </h1>
-
-<nav style="background-color: #9AEEE8">
-  <%= link_to "Stats", stats_index_path %>
-</nav>
-
-<%= will_paginate @authors%>
 <%= render 'author_articles' %>
-<%#= next_cursor_url(@authors) %>
-<%#= previous_cursor_link(@authors, 'Previous Page') %>
-<%#= next_cursor_link(@authors, 'Next Page') %>
+<%= will_paginate @authors, inner_window: 2 %>

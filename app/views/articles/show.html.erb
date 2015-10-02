@@ -1,13 +1,19 @@
-<h1>Terrible article show page</h1>
-<h3><%= @article.name %></h1>
-
-<p> Article body: <%= @article.body %></p>
-
-<h2>Comments section</h2>
-<p>
-  <% @article.comments.each do |com| %>
-    <%= com.body.html_safe %>
+<div>
+<header class="entry-header">
+  <h2 class="entry-title"><%= @article.name %></h2>
+</header>
+<div class="entry-summary">
+  <%= content_tag :p, @article.body %>
+  <p>
+    <%= link_to "New Comment", comments_new_path(article: @article.id), class: 'btn btn-default' %>
+  </p>
+  <% @article.comments.each do |comment| %>
+    <blockquote>
+      <p><%= comment.body %></p><small>by <%= comment.author %></small>
+    </blockquote>
   <% end %>
-</p>
 
-<%= link_to "New Comment", comments_new_path(article: @article.id) %>
+</div>
+
+
+</div>

@@ -1,12 +1,22 @@
-<%= form_for @comment do |f| %>
-  <%= f.label :author %>
-  <%= f.text_field :author %>
-  <br>
-
-  <%= f.label :body %>
-  <%= f.text_area :body, size: "60x12" %>
-
-  <%= f.hidden_field :article, value: @article.id %>
-  
-  <%= f.submit "Create" %>
-<% end %>
+<div id="respond" class="comment-respond">
+  <%= form_for@comment, html: {class: 'comment-form', id: 'commentform'} do |f| %>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="comment-form-author">
+            <%= f.text_field :author, placholder: "What is your name?" %>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="comment-form-comment">
+            <%= f.text_area :body, placeholder: "Comment", id: "comment", cols: "45", rows: "8", aria_required: "true"%>
+          </p>
+        </div>
+      </div>
+      <%= f.hidden_field :article, value: @article.id %>
+      <p class="form-submit">
+          <%= f.submit "Create", class: "submit", value: "Post Comment", id: "submit" %>
+      </p>
+      <% end %>
+</div>
