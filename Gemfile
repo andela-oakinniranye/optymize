@@ -10,14 +10,17 @@ gem 'pry-rails'
 
   gem 'fabrication'
   gem 'faker'
-  gem 'cursor_pagination'
   gem 'will_paginate'
   gem 'bootstrap-will_paginate'
   gem 'twitter-bootstrap-rails'
   gem 'less-rails'
   gem 'therubyracer'
+  gem 'rails-observers'
+
+  gem 'redcarpet'
 
 group :development, :test do
+  gem 'cursor_pagination'
   gem 'sqlite3'
   gem 'web-console', '~> 2.0'
   gem 'spring'

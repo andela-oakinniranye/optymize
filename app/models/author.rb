@@ -14,6 +14,6 @@ class Author < ActiveRecord::Base
   end
 
   def self.with_most_upvoted_article
-    Article.most_upvoted.author.name
+    Article.most_upvoted
   end
 end

@@ -31,9 +31,9 @@
     <h3>List of all the article names
     </h3>
     <% @article_names.each do |name| %>
-    <li><p><%= name %></p></li>
+      <li><p><%= name %></p></li>
     <% end %>
-    <%= will_paginate @article_names, inner_window: 2  %>
+    <%= will_paginate @articles_name_array_with_index, inner_window: 2  %>
   </div>
 </div>
 </div>

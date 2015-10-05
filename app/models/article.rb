@@ -1,14 +1,14 @@
 class Article < ActiveRecord::Base
   belongs_to :author, counter_cache: true
   has_many :comments
-  scope :with_comments, -> { includes(:comments) }
+  scope :with_comments, -> { joins(:comments) }
 
   def self.all_names
     pluck(:name)
   end
 
   def self.most_upvoted
-    order(upvotes: :desc).first
+    joins(:author).order("articles.upvotes DESC").limit(1).pluck('authors.name').first
   end
 
   def self.five_longest_article_names

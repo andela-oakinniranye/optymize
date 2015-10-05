@@ -1,19 +1,24 @@
 <div>
-<header class="entry-header">
-  <h2 class="entry-title"><%= @article.name %></h2>
-</header>
-<div class="entry-summary">
-  <%= content_tag :p, @article.body %>
-  <p>
-    <%= link_to "New Comment", comments_new_path(article: @article.id), class: 'btn btn-default' %>
-  </p>
-  <% @article.comments.each do |comment| %>
-    <blockquote>
-      <p><%= comment.body %></p><small>by <%= comment.author %></small>
-    </blockquote>
+  <%if @article %>
+  <% cache(@article) do %>
+    <header class="entry-header">
+      <h2 class="entry-title"><%= @article.name %></h2>
+    </header>
+    <div class="entry-summary">
+      <%= content_tag :p, @article.body %>
+        <p>
+          <%= link_to "New Comment", comments_new_path(article: @article.id), class: 'btn btn-default' %>
+        </p>
+        <% @article.comments.each do |comment| %>
+        <% cache(comment) do %>
+        <blockquote>
+          <p><%= comment.body %></p>
+          <small>by
+            <%= comment.author %></small>
+        </blockquote>
+        <% end %>
+      <% end %>
+    </div>
+    <% end %>
   <% end %>
-
-</div>
-
-
 </div>
