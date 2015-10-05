@@ -15,8 +15,7 @@ gem 'pry-rails'
   gem 'twitter-bootstrap-rails'
   gem 'less-rails'
   gem 'therubyracer'
-  gem 'rails-observers'
-
+  gem 'rails-observers', git: 'https://github.com/rails/rails-observers.git'
   gem 'redcarpet'
 
 group :development, :test do
