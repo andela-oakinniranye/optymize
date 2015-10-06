@@ -8,7 +8,7 @@ class Article < ActiveRecord::Base
   end
 
   def self.most_upvoted
-    joins(:author).order("articles.upvotes DESC").limit(1).pluck('authors.name').first
+    joins(:author).where.not(upvotes: nil).order("articles.upvotes ASC").limit(1).pluck('authors.name').first
   end
 
   def self.five_longest_article_names
