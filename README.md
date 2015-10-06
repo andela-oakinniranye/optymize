@@ -1,9 +1,30 @@
 # Andela Rails Checkpoint #3
 
+## Actions Taken
+  Application is available [here: Optymize](https://optymize.herokuapp.com "Optymize")
+  Optimizing an application may be things we take for granted, not because it's not important but because at times our focus is on getting things done.
+  
+  However, a time comes when an application becomes unscalable due to optimizations and other house-cleaning that has not been done.
+  
+  Knowing to optimize is one part, knowing what to optimize is another part and the final part is knowing to optimize efficiently.
+  
+  This project included many unnecessary calls which greatly bogged down the application.
+  
+  In order to optimize this application, my first touch-point was on the active record queries, which obviously weren't efficient.
+  Afterwards, I implemented some methods that worked around other bugs, cached pages and included the observer/sweeper module of ActiveRecord which would clean up a cache after any updates.
+  
+## Challenges Faced
+  The biggest challenge I faced with this project was with the 'rails-observer' gem, which wasn't loading properly in production
+  To fix this, I added an extra ``require "rails/observers/activerecord/active_record"`` in my config/application.rb file
+  Another challenge which surfaced last was with postgres db, which was incorrectly ordering null to the top, when I called order.
+  Approach I could have taken, which though unscalable was to add a Article.order('upvotes DESC NULLS LAST'), but this would break with SQLite and maybe other DBs, however a ``where.not(upvotes: nil)`` seem to work fine.
+  
+To work on the project on your own, you may clone from the [source: Rails_Worst_App](https://github.com:andela/checkpoint_rails_worst_app "Rails Worst App") or [mine: Optymize](https://github.com:andela-oakinniranye/optymize "Optymize")
+
 1. Git clone this app and follow the instructions below.
 
 ```bash
-git clone git@github.com:andela/checkpoint_rails_worst_app.git
+git clone git@github.com:andela-oakinniranye/optymize
 ```
 
 ### This is one of the worst performing Rails apps ever.
