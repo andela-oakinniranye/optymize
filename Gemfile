@@ -15,7 +15,10 @@ gem 'pry-rails'
   gem 'twitter-bootstrap-rails'
   gem 'less-rails'
   gem 'therubyracer'
-  # gem 'rails-observers', git: 'https://github.com/rails/rails-observers.git'
+  # gem 'actionpack-action_caching'
+  # gem 'actionpack-page_caching'
+  # gem 'rails-observer_custom'
+  gem 'rails-observers', git: 'https://github.com/rails/rails-observers.git'
   gem 'redcarpet'
 
 group :development, :test do
@@ -29,4 +32,5 @@ end
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor', '0.0.2'
 end

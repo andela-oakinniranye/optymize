@@ -16,5 +16,5 @@
 !/log/.keep
 /tmp
 
-app/sweepers/
+# app/sweepers/
 doc/
